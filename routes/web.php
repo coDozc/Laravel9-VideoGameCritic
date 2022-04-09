@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+
+
+
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -21,4 +24,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/message', function () {
+    return 'Hello World';
+});
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/test', [HomeController::class, 'test'])->name('test');
+
+Route::get('/param/{id}/{number}', [HomeController::class, 'param'])->name('param');
+
+Route::post('save', [HomeController::class, 'save'])->name('save');
+
+
 require __DIR__.'/auth.php';
+
