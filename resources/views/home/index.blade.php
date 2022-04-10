@@ -3,11 +3,11 @@
 @section('title', 'Game Critic')
 
 
-
-
+@section('slider')
+    @include('home.slider')
+@endsection
 
 @section('content')
-
     <section class="section">
         <div class="container">
             <div class="row">

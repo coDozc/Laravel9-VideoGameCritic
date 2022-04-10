@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Htpp\Controllers\AdminPanel\HomeController as AdminHomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +37,9 @@ Route::get('/param/{id}/{number}', [HomeController::class, 'param'])->name('para
 
 Route::post('save', [HomeController::class, 'save'])->name('save');
 
+
+// *************************** ADMIN PANEL ROUTES ************************* \\
+Route::get('/admin', [AdminHomeController::class, 'index'])->name('admin');
 
 require __DIR__.'/auth.php';
 

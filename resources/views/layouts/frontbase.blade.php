@@ -10,6 +10,7 @@
 
 <!-- Site Metas -->
 <title>@yield("title")</title>
+
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
