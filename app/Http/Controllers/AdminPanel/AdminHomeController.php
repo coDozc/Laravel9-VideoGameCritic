@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use function view;
 
 class AdminHomeController extends Controller
 {

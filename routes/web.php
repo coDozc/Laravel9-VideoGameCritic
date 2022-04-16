@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminPanel\AdminHomeController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminHomeController;
+use Illuminate\Support\Facades\Route;
 
 /*--------------------------------------------------------------------------
 | Web Routes
@@ -40,7 +40,9 @@ Route::post('save', [HomeController::class, 'save'])->name('save');
 
 // *************************** ADMIN PANEL ROUTES ************************* \\
 Route::get('/admin', [AdminHomeController::class, 'index'])->name('admin');
+// *************************** ADMIN PANEL ROUTES ************************* \\
+Route::get('/admin/category', [\App\Http\Controllers\AdminPanel\CategoryController::class, 'index'])->name('admin_category');
 
-
+Route::get('/admin/category/create', [\App\Http\Controllers\AdminPanel\CategoryController::class, 'create'])->name('admin_category_create');
 require __DIR__.'/auth.php';
 

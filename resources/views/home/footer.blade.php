@@ -4,7 +4,7 @@
             <div class="col-lg-7">
                 <div class="widget">
                     <div class="footer-text text-left">
-                        <a href="public/assets/tech-index.html"><img src="public/assets/images/version/tech-footer-logo.png" alt="" class="img-fluid"></a>
+                        <a href="index.html"><img src="images/version/tech-footer-logo.png" alt="" class="img-fluid"></a>
                         <p>Tech Blog is a technology blog, we sharing marketing, news and gadget articles.</p>
                         <div class="social">
                             <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
@@ -67,11 +67,13 @@
 </footer><!-- end footer -->
 
 <div class="dmtop">Scroll to Top</div>
+
+</div><!-- end wrapper -->
+
+
 <!-- Core JavaScript
 ================================================== -->
-<script src="public/assets/js/jquery.min.js"></script>
-<script src="public/assets/js/tether.min.js"></script>
-<script src="public/assets/js/bootstrap.min.js"></script>
-<script src="public/assets/js/custom.js"></script>
-<script src="public/assets/js/slider.js"></script>
-
+<script src="js/jquery.min.js"></script>
+<script src="js/tether.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>

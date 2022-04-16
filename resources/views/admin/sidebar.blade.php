@@ -1,4 +1,3 @@
-<!-- /. NAV TOP  -->
 <nav class="navbar-default navbar-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
@@ -101,22 +100,22 @@
                 <a href="public/assets/admin/login.html"><i class="fa fa-sign-in "></i>Login Page</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-sitemap "></i>Multilevel Link <span class="fa arrow"></span></a>
+                <a href="public/assets/admin/#"><i class="fa fa-sitemap "></i>Multilevel Link <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#"><i class="fa fa-bicycle "></i>Second Level Link</a>
+                        <a href="public/assets/admin/#"><i class="fa fa-bicycle "></i>Second Level Link</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-flask "></i>Second Level Link</a>
+                        <a href="public/assets/admin/#"><i class="fa fa-flask "></i>Second Level Link</a>
                     </li>
                     <li>
                         <a href="#">Second Level Link<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li>
-                                <a href="#"><i class="fa fa-plus "></i>Third Level Link</a>
+                                <a href="public/assets/admin/#"><i class="fa fa-plus "></i>Third Level Link</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-comments-o "></i>Third Level Link</a>
+                                <a href="public/assets/admin/#"><i class="fa fa-comments-o "></i>Third Level Link</a>
                             </li>
 
                         </ul>
