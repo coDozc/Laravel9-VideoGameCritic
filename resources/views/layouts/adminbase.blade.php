@@ -6,27 +6,29 @@
     <title>@yield("title")</title>
 
     <!-- BOOTSTRAP STYLES-->
-    <link href="public/admin/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="public/assets/admin/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
-    <link href="public/admin/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="public/assets/admin/css/font-awesome.css" rel="stylesheet" />
     <!--CUSTOM BASIC STYLES-->
-    <link href="public/admin/assets/css/basic.css" rel="stylesheet" />
+    <link href="public/assets/admin/css/basic.css" rel="stylesheet" />
     <!--CUSTOM MAIN STYLES-->
-    <link href="public/admin/assets/css/custom.css" rel="stylesheet" />
+    <link href="public/assets/admin/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     @yield("head")
 </head>
+<>
 <body>
 @include('admin.header')
 
 @section('sidebar')
-    @include(('admin.sidebarr'))
+    @include('admin.sidebar')
 @show
 
 @yield('content')
 
 @include('admin.footer')
 @yield('foot')
+
 </body>
 </html>

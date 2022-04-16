@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Htpp\Controllers\AdminPanel\HomeController as AdminHomeController;
+use App\Http\Controllers\AdminHomeController;
+
 /*--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
