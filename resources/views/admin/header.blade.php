@@ -7,14 +7,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="public/assets/admin/index.html">COMPANY NAME</a>
+            <a class="navbar-brand" href="{{asset('assets')}}/assets/admin/index.html">COMPANY NAME</a>
         </div>
 
         <div class="header-right">
 
-            <a href="public/assets/admin/message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
-            <a href="public/assets/admin/message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>
-            <a href="public/assets/admin/login.html" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+            <a href="{{asset('assets')}}/assets/admin/message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
+            <a href="{{asset('assets')}}/assets/admin/message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>
+            <a href="{{asset('assets')}}//assets/admin/login.html" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
 
 
         </div>
