@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminPanel\AdminHomeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminPanel\CategoryController;
 
 /*--------------------------------------------------------------------------
 | Web Routes
@@ -41,11 +42,10 @@ Route::post('save', [HomeController::class, 'save'])->name('save');
 // *************************** ADMIN PANEL ROUTES ************************* \\
 Route::get('/admin', [AdminHomeController::class, 'index'])->name('admin');
 // *************************** ADMIN PANEL ROUTES ************************* \\
-Route::get('/admin/category', [\App\Http\Controllers\AdminPanel\CategoryController::class, 'index'])->name('admin_category');
-
-Route::get('/admin/category/create', [\App\Http\Controllers\AdminPanel\CategoryController::class, 'create'])->name('admin_category_create');
-
-Route::put('/admin/category/store', [\App\Http\Controllers\AdminPanel\CategoryController::class, 'store'])->name('admin_category_store');
+Route::get('/admin/category', [CategoryController::class, 'index'])->name('admin_category');
+Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('admin_category_create');
+Route::put('/admin/category/store', [CategoryController::class, 'store'])->name('admin_category_store');
+Route::get('/admin/category/edit{id}', [CategoryController::class, 'edit'])->name('admin_category_edit');
 
 
 require __DIR__.'/auth.php';

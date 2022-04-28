@@ -9,8 +9,51 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-head-line">Category List</h1>
-                    <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
 
+                    <div class="col-md-6">
+                        <!--    Bordered Table  -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Category List
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive table-bordered">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Title</th>
+                                            <th>Keywords</th>
+                                            <th>Description</th>
+                                            <th>Image</th>
+                                            <th>Status</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            <th>Show</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($data as $rs)
+                                        <tr>
+                                            <td>{{$rs -> id}}</td>
+                                            <td>{{$rs -> title}}</td>
+                                            <td>{{$rs -> keywords}}</td>
+                                            <td>{{$rs -> description}}</td>
+                                            <td>{{$rs -> image}}</td>
+                                            <td>{{$rs -> status}}</td>
+                                            <td><a href="/admin/category/edit{{$rs -> id}}"class="btn btn-info">Edit</a></td>
+                                            <td><a href="/admin/category/delete{{$rs -> id}}"class="btn btn-danger">Delete</a></td>
+                                            <td><a href="/admin/category/{{$rs -> id}}"class="btn btn-success">Show</a></td>
+                                        </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--  End  Bordered Table  -->
+                    </div>
                 </div>
             </div>
             <!-- /. ROW  -->
