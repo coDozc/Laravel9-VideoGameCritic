@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Add Category')
+@section('title', 'Edit Category: {{$data->title}}')
 
 
 @section('content')
@@ -8,23 +8,23 @@
     <div id="page-wrapper">
         <div class="panel panel-info">
             <div class="panel-heading">
-                CATEGORY ELEMENTS
+                Edit Category: {{$data->title}}
             </div>
             <div class="panel-body">
-                <form role="form" action="/admin/category/store" method="post">
+                <form role="form" action="/admin/category/update/{{$data->id}}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
                         <label>Title</label>
-                        <input class="form-control" type="text" name="title" placeholder="Title">
+                        <input class="form-control" type="text" name="title" value="{{$data->title}}" placeholder="Title">
                     </div>
                     <div class="form-group">
                         <label>Keywords</label>
-                        <input class="form-control" type="text" name="keywords" placeholder="keywords">
+                        <input class="form-control" type="text" name="keywords" value="{{$data->keywords}}" placeholder="keywords">
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input class="form-control" type="text" name="description" placeholder="description">
+                        <input class="form-control" type="text" name="description" value="{{$data->description}}" placeholder="description">
                     </div>
                     <div class="form-group">
                         <label class="control-label col-lg-4">Image Upload</label>
@@ -42,13 +42,14 @@
                     <div class="form-group">
                         <label>Status</label>
                         <select class="form-control" name="status">
+                            <option selected>{{$data->status}}</option>
                             <option>True</option>
                             <option>False</option>
                         </select>
                     </div>
 
 
-                    <button type="submit" class="btn btn-info">Save</button>
+                    <button type="submit" class="btn btn-info">Update Data</button>
 
                 </form>
             </div>
