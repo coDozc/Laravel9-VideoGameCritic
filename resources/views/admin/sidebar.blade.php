@@ -22,8 +22,12 @@
 
             </li>
 
+            <li class="active-menu">
+                <a href="/admin"><i class="fa fa-home "></i>Dashboard</a>
+            </li>
+
             <li class="active">
-                <a href="#"><i class="fa fa-dashboard "></i>Orders <span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-box-open"></i>Orders <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse in" style="">
                     <li>
                         <a href="invoice.html"><i class="fa fa-circle"></i>New Orders</a>
@@ -45,7 +49,7 @@
                 <a href="/admin/category"><i class="fa fa-braille "></i>Categories</a>
             </li>
             <li class="active-menu">
-                <a href="/admin/game"><i class="fa fa-joystick "></i>Game</a>
+                <a href="/admin/game"><i class="fa fa-gamepad "></i>Game</a>
             </li>
             <li class="active-menu">
                 <a href="/admin/comment"><i class="fa fa-comments "></i>Comment</a>
@@ -60,7 +64,7 @@
                 <a href="/admin/users"><i class="fa fa-user"></i>Users</a>
             </li>
             <li class="active-menu">
-                <a href="/admin/social"><i class="fa fa-yelp "></i>Social</a>
+                <a href="/admin/social"><i class="fa-solid fa-users text-green-50"></i>Social</a>
             </li>
 
 

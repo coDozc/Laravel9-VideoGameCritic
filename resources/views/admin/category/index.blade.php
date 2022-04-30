@@ -2,14 +2,12 @@
 
 @section('title', 'Category List')
 
-
 @section('content')
     <div id="page-wrapper">
         <div id="page-inner">
             <div class="row">
+                <a href="/admin/category/create" class="btn btn-info" style="margin: 20px 15px 30px 30px ">Add Category</a>
                 <div class="col-md-12">
-                    <h1 class="page-head-line">Category List</h1>
-
                     <div class="col-md-6">
                         <!--    Bordered Table  -->
                         <div class="panel panel-default">
