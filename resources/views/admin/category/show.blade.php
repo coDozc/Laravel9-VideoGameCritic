@@ -13,8 +13,8 @@
             <div class="col-md-6">
                 <!--    Context Classes  -->
                 <div class="panel panel-default">
-                    <a href="/admin/category/edit/{{$data->id}}" class="btn btn-info" style="margin: 20px 15px 30px 30px ">Edit</a>
-                    <a href="/admin/category/destroy/{{$data->id}}" class="btn btn-info" style="margin: 20px 15px 30px 30px ">Delete</a>
+                    <a href="{{route('admin.category.edit',['id'=>$data -> id])}}" class="btn btn-info" style="margin: 20px 15px 30px 30px ">Edit</a>
+                    <a href="{{route('admin.category.destroy',['id'=>$data -> id])}}" class="btn btn-info" style="margin: 20px 15px 30px 30px ">Delete</a>
                     <div class="panel-heading">
                         Details
                     </div>

@@ -6,7 +6,7 @@
     <div id="page-wrapper">
         <div id="page-inner">
             <div class="row">
-                <a href="/admin/category/create" class="btn btn-info" style="margin: 20px 15px 30px 30px ">Add Category</a>
+                <a href="{{route('admin.category.create')}}" class="btn btn-info" style="margin: 20px 15px 30px 30px ">Add Category</a>
                 <div class="col-md-12">
                     <div class="col-md-6">
                         <!--    Bordered Table  -->
@@ -40,9 +40,9 @@
                                             <td>{{$rs -> description}}</td>
                                             <td>{{$rs -> image}}</td>
                                             <td>{{$rs -> status}}</td>
-                                            <td><a href="/admin/category/edit/{{$rs -> id}}"class="btn btn-info">Edit</a></td>
-                                            <td><a href="/admin/category/delete/{{$rs -> id}}"class="btn btn-danger">Delete</a></td>
-                                            <td><a href="/admin/category/show/{{$rs -> id}}"class="btn btn-success">Show</a></td>
+                                            <td><a href="{{route('admin.category.edit',['id'=>$rs -> id])}}"class="btn btn-info">Edit</a></td>
+                                            <td><a href="{{route('admin.category.destroy',['id'=>$rs -> id])}}"class="btn btn-danger">Delete</a></td>
+                                            <td><a href="{{route('admin.category.show',['id'=>$rs -> id])}}"class="btn btn-success">Show</a></td>
                                         </tr>
                                         @endforeach
                                         </tbody>

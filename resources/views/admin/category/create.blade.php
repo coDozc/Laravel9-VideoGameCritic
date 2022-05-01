@@ -11,7 +11,7 @@
                 CATEGORY ELEMENTS
             </div>
             <div class="panel-body">
-                <form role="form" action="/admin/category/store" method="post">
+                <form role="form" action="{{route('admin.category.create')}}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
