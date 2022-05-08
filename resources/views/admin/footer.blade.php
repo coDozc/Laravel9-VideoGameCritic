@@ -12,3 +12,4 @@
 <!-- CUSTOM SCRIPTS -->
 <script src="{{asset('assets')}}/assets/js/custom.js"></script>
 
+<script src="{{asset('assets')}}/assets/js/bootstrap-fileupload.js"></script>

@@ -47,6 +47,9 @@ class CategoryController extends Controller
         $data->keywords = $request->keywords;
         $data->description = $request->description;
         $data->status = $request->status;
+        if ($request->file('image')) {
+            $data->image = $request->file('image')->store('images');
+        }
         $data->save();
         return redirect('admin/category');
     }
@@ -78,6 +81,7 @@ class CategoryController extends Controller
         return view('admin.category.edit', [
             'data' => $data
         ]);
+
     }
 
     /**
@@ -96,6 +100,9 @@ class CategoryController extends Controller
         $data->keywords = $request->keywords;
         $data->description = $request->description;
         $data->status = $request->status;
+        if ($request->file('image')) {
+            $data->image = $request->file('image')->store('images');
+        }
         $data->save();
         return redirect('admin/category');
     }
@@ -106,8 +113,8 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category, $id)
     {
-        //
+        echo "destroy: ", $id;
     }
 }

@@ -11,7 +11,7 @@
                 Edit Category: {{$data->title}}
             </div>
             <div class="panel-body">
-                <form role="form" {{route('admin.category.update',['id'=>$data -> id])}}" method="post">
+                <form role="form" action="{{route('admin.category.update',['id'=>$data -> id])}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

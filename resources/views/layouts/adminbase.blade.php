@@ -11,6 +11,8 @@
     <link href="{{asset('assets')}}/assets/css/font-awesome.css" rel="stylesheet" />
     <!--CUSTOM BASIC STYLES-->
     <link href="{{asset('assets')}}/assets/css/basic.css" rel="stylesheet" />
+
+    <link href="{{asset('assets')}}/assets/css/bootstrap-fileupload.min.css" rel="stylesheet" />
     <!--CUSTOM MAIN STYLES-->
     <link href="{{asset('assets')}}/assets/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->

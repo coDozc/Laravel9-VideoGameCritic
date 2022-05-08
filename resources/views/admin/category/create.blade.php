@@ -11,7 +11,7 @@
                 CATEGORY ELEMENTS
             </div>
             <div class="panel-body">
-                <form role="form" action="{{route('admin.category.create')}}" method="post">
+                <form role="form" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -29,15 +29,16 @@
                     <div class="form-group">
                         <label class="control-label col-lg-4">Image Upload</label>
                         <div class="">
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                            <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden" value="" name="image">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
                                 <div>
-                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file"></span>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span>
+                                        <span class="fileupload-exists">Change</span>
+                                        <input type="file" name="image"></span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
