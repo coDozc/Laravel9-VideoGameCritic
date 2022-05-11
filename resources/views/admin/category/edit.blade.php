@@ -15,6 +15,17 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
+                        <label>Parent Category</label>
+
+                        <select class="form-control select2" name="parent_id">
+                            <option value="0" selected="selected">Main Category</option>
+                            @foreach($datalist as $rs)
+                                <option value="{{$rs->id}}" @if ($rs->id == $data->parent_id) selected="selected" @endif>
+                                    {{App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}
+                                </option>
+                            @endforeach
+                        </select>
+
                         <label>Title</label>
                         <input class="form-control" type="text" name="title" value="{{$data->title}}" placeholder="Title">
                     </div>
@@ -29,15 +40,16 @@
                     <div class="form-group">
                         <label class="control-label col-lg-4">Image Upload</label>
                         <div class="">
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                            <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden" value="" name="image">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
                                 <div>
-                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file"></span>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span>
+                                        <span class="fileupload-exists">Change</span>
+                                        <input type="file" name="image"></span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
