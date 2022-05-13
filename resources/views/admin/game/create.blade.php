@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Add Category')
+@section('title', 'Add Game')
 
 
 @section('content')
@@ -8,18 +8,18 @@
     <div id="page-wrapper">
         <div class="panel panel-info">
             <div class="panel-heading">
-                CATEGORY ELEMENTS
+                GAME ELEMENTS
             </div>
             <div class="panel-body">
-                <form role="form" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{route('admin.game.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
 
-                        <label>Parent Category</label>
+                        <label>Parent Game</label>
 
-                        <select class="form-control select2" name="parent_id">
-                            <option value="0" selected="selected">Main Category</option>
+                        <select class="form-control select2" name="category_id">
+                            <option value="0" selected="selected">Main Game</option>
                             @foreach($data as $rs)
                                 <option value="{{$rs->id}}" > {{App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
                             @endforeach
@@ -36,6 +36,28 @@
                     <div class="form-group">
                         <label>Description</label>
                         <input class="form-control" type="text" name="description" placeholder="description">
+                    </div>
+                    <div class="form-group">
+                        <label>Genre</label>
+                        <input class="form-control" type="text" name="genre" placeholder="description">
+                    </div>
+                    <div class="form-group">
+                        <label>Developer</label>
+                        <input class="form-control" type="text" name="developer" placeholder="description">
+                    </div>
+                    <div class="form-group">
+                        <label>Hours</label>
+                        <input class="form-control" type="number" name="hours" value="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Summary</label>
+                        <input class="form-control" type="text" name="summary" placeholder="description">
+                    </div>
+                    <div class="form-group">
+                        <label>Detail</label>
+                        <textarea class="form-control"  name="detail">
+
+                        </textarea>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-lg-4">Image Upload</label>
@@ -65,19 +87,19 @@
                 </form>
             </div>
         </div>
-        <!-- /. ROW  -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="alert alert-info">
-                    This is a free responsive admin under cc3.0 license, so you can use it for personal and commercial use.
-                    <br />
-                    Enjoy this admin and for more please keep looking <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+            <!-- /. ROW  -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-info">
+                        This is a free responsive admin under cc3.0 license, so you can use it for personal and commercial use.
+                        <br />
+                        Enjoy this admin and for more please keep looking <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div>
-    <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE INNER  -->
     </div>
     <!-- /. PAGE WRAPPER  -->
     </div>
