@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPanel\AdminGameController;
+use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\AdminHomeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -64,7 +65,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/destroy/{id}','destroy')->name('destroy');
         Route::get('/show/{id}','show')->name('show');
 });
-
+    // *************************** ADMIN GAME IMAGE GALLERY ROUTES ************************* \\
+    Route::prefix('image')->name('image.')->controller(ImageController::class)->group(function () {
+        Route::get('/{gid}','index')->name('index');
+        Route::post('/store/{gid}', 'store')->name('store');
+        Route::get('/destroy/{gid}/{id}','destroy')->name('destroy');
+    });
 
 });
 

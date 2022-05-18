@@ -45,7 +45,7 @@
                                             </td>
                                             <td>{{$rs -> status}}</td>
                                             <td><a href="{{route('admin.category.edit',['id'=>$rs -> id])}}"class="btn btn-info">Edit</a></td>
-                                            <td><a href="{{route('admin.category.destroy',['id'=>$rs -> id])}}"class="btn btn-danger">Delete</a></td>
+                                            <td><a onclick="return confirm('Are you sure?')" href="{{route('admin.category.destroy',['id'=>$rs -> id])}}"class="btn btn-danger">Delete</a></td>
                                             <td><a href="{{route('admin.category.show',['id'=>$rs -> id])}}"class="btn btn-success">Show</a></td>
                                         </tr>
                                         @endforeach

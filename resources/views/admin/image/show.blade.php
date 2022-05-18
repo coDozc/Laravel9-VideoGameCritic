@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Show Game: {{$data->title}}')
+@section('title', 'Show Category: {{$data->title}}')
 
 
 @section('content')
@@ -8,13 +8,13 @@
     <div id="page-wrapper">
         <div class="panel panel-info">
             <div class="panel-heading">
-                Edit Game: {{$data->title}}
+                Edit Category: {{$data->title}}
             </div>
             <div class="col-md-6">
                 <!--    Context Classes  -->
                 <div class="panel panel-default">
-                    <a href="{{route('admin.game.edit',['id'=>$data -> id])}}" class="btn btn-info" style="margin: 20px 15px 30px 30px ">Edit</a>
-                    <a href="{{route('admin.game.destroy',['id'=>$data -> id])}}" class="btn btn-info" style="margin: 20px 15px 30px 30px ">Delete</a>
+                    <a href="{{route('admin.category.edit',['id'=>$data -> id])}}" class="btn btn-info" style="margin: 20px 15px 30px 30px ">Edit</a>
+                    <a href="{{route('admin.category.destroy',['id'=>$data -> id])}}" class="btn btn-info" style="margin: 20px 15px 30px 30px ">Delete</a>
                     <div class="panel-heading">
                         Details
                     </div>
@@ -28,13 +28,6 @@
                                     <td>{{$data->id}}</td>
                                 </tr>
                                 <tr>
-                                    <th style="width: 30px" >Category</th>
-
-                                    <td>
-                                        {{App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($data->category,$data->category->title)}}
-                                    </td>
-                                </tr>
-                                <tr>
                                     <th style="width: 30px" >Title</th>
                                     <td>{{$data->title}}</td>
                                 </tr>
@@ -43,32 +36,8 @@
                                     <td>{{$data->keywords}}</td>
                                 </tr>
                                 <tr>
-                                    <th style="width: 30px" >Description</th>
-                                    <td>{{$data->description}}</td>
-                                </tr>
-                                <tr>
-                                    <th style="width: 30px" >Genre</th>
-                                    <td>{{$data->genre}}</td>
-                                </tr>
-                                <tr>
-                                    <th style="width: 30px" >Developer</th>
-                                    <td>{{$data->developer}}</td>
-                                </tr>
-                                <tr>
-                                    <th style="width: 30px" >Hours</th>
-                                    <td>{{$data->hours}}</td>
-                                </tr>
-                                <tr>
-                                    <th style="width: 30px" >Detail inf</th>
-                                    <td>{{$data->detail}}</td>
-                                </tr>
-                                <tr>
                                     <th style="width: 30px" >Image</th>
-                                    <td>
-                                        @if($data->image)
-                                            <img src="{{Storage::url($data->image)}}" style="height: 100px">
-                                        @endif
-                                    </td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th style="width: 30px" >Status</th>

@@ -28,6 +28,7 @@
                                             <th>Hours</th>
                                         <!--<th>Description</th>-->
                                             <th>Image</th>
+                                            <th>Image Gallery</th>
                                             <th>Status</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -38,7 +39,7 @@
                                         @foreach($data as $rs)
                                         <tr>
                                             <td>{{$rs -> id}}</td>
-                                            <td>{{App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</td>
+                                            <td>{{App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category,$rs->category->title)}}</td>
                                             <td>{{$rs -> title}}</td>
                                             <!--<td>{{$rs -> description}}</td>-->
                                             <td>{{$rs -> genre}}</td>
@@ -46,13 +47,21 @@
                                             <td>{{$rs -> hours}}</td>
                                             <td>
                                                 @if($rs->image)
-                                                <img src="{{Storage::url($rs->image)}}" style="height: 60px">
+                                                    <img src="{{Storage::url($rs->image)}}" style="height: 60px">
                                                 @endif
                                             </td>
+                                            <td><a href="{{route('admin.image.index',['gid'=>$rs -> id])}}"
+                                                onclick="return !window.open(this.href, '', 'top=50 left=100 width=1100, height=700')">
+
+                                                   <img src="{{asset('assets')}}/public/images/red-dead-redemption-2-pc-hero-banner-basekeepers%20(1).jpg" style="height: 60px">
+                                                </a>
+                                            </td>
+
                                             <td>{{$rs -> status}}</td>
 
                                             <td><a href="{{route('admin.game.edit',['id'=>$rs -> id])}}"class="btn btn-info">Edit</a></td>
-                                            <td><a href="{{route('admin.game.destroy',['id'=>$rs -> id])}}"class="btn btn-danger">Delete</a></td>
+                                            <td><a onclick="return confirm('Are you sure?')" href="{{route('admin.game.destroy',['id'=>$rs -> id])}}"class="btn btn-danger">Delete</a>
+                                            </td>
                                             <td><a href="{{route('admin.game.show',['id'=>$rs -> id])}}"class="btn btn-success">Show</a></td>
                                         </tr>
                                         @endforeach
