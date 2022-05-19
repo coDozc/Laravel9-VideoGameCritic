@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('keywords')->nullable();
             $table->string('description')->nullable();
             $table->string('image')->nullable();
-            $table->text('detail')->nullable();
+            $table->longText('detail')->nullable();
             $table->string('videolink')->nullable();
             $table->string('genre')->nullable();
             $table->string('developer')->nullable();

@@ -1,7 +1,9 @@
 @extends('layouts.adminbase')
 
 @section('title', 'Game List')
-
+@section('head')
+        <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 @section('content')
     <div id="page-wrapper">
         <div id="page-inner">

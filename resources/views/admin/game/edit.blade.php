@@ -1,8 +1,9 @@
 @extends('layouts.adminbase')
 
 @section('title', 'Edit Game: {{$data->title}}')
-
-
+@section('head')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+@endsection
 @section('content')
     <link href="assets/css/bootstrap-fileupload.min.css" rel="stylesheet" />
     <div id="page-wrapper">
@@ -103,4 +104,12 @@
     </div>
     <!-- /. PAGE WRAPPER  -->
     </div>
+    @section('foot')
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        <script>
+            $(function () {
+                $('. textarea').summernote()
+            })
+        </script>
+    @endsection
 @endsection

@@ -55,9 +55,22 @@
                     </div>
                     <div class="form-group">
                         <label>Detail</label>
-                        <textarea class="form-control"  name="detail">
+                        <textarea class="form-control" id="detail" name="detail">
 
                         </textarea>
+                        <body>
+                            <div id="editor">This is some sample content.</div>
+                            <script>
+                                ClassicEditor
+                                 .create( document.querySelector( '#detail' ) )
+                                  .then( editor => {
+                                    console.log( editor );
+                                    } )
+                                    .catch( error => {
+                                      console.error( error );
+                                  } );
+                             </script>
+                        </body>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-lg-4">Image Upload</label>

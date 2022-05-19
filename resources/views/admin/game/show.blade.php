@@ -60,7 +60,7 @@
                                 </tr>
                                 <tr>
                                     <th style="width: 30px" >Detail inf</th>
-                                    <td>{{$data->detail}}</td>
+                                    <td>{!! $data->detail !!}</td>
                                 </tr>
                                 <tr>
                                     <th style="width: 30px" >Image</th>
