@@ -17,7 +17,7 @@
                                 <div class="thumb-wrapper">
                                     <a href="#">
                                     <div class="img-box">
-                                        <img src="{{Storage::url($rs->image)}}" class="img-fluid" style="height: 250px weight: 200px">
+                                        <img src="{{Storage::url($rs->image)}}" class="img-fluid" style="height: 260px; width: 260px">
                                     </div>
                                     <div class="thumb-content">
                                         <h4>{{$rs->title}}</h4>

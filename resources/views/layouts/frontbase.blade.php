@@ -54,7 +54,12 @@
 
 @include('home.header')
 
+@section('sidebar')
+    @include('home.sidebar')
+@shoe
+
 @yield('slider')
+
 @yield('content')
 
 @include('home.footer')
