@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     //
     public function index() {
-        return view('home.index');
+        $sliderdata=Game::limit(4)->get();
+        return view('home.index', [
+            'sliderdata'=>$sliderdata
+        ]);
     }
 
     public function text() {

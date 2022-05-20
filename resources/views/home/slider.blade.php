@@ -1,34 +1,44 @@
-<!-- Slideshow container -->
-<div class="slideshow-container">
-
-    <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="public/assets/images/banner-item-02.jpg" style="width:100%">
-        <div class="text">Caption Text</div>
+<div class="container-xl">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            @foreach($sliderdata as $rs)
+                            <div class="col-sm-4">
+                                <div class="thumb-wrapper">
+                                    <a href="#">
+                                    <div class="img-box">
+                                        <img src="{{Storage::url($rs->image)}}" class="img-fluid" style="height: 250px weight: 200px">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>{{$rs->title}}</h4>
+                                        <p>{{$rs->title}}</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel controls -->
+                <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
     </div>
-
-    <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="public/assets/images/banner-item-01.jpg" style="width:100%">
-        <div class="text">Caption Two</div>
-    </div>
-
-    <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="public/assets/images/banner-item-03.jpg" style="width:100%">
-        <div class="text">Caption Three</div>
-    </div>
-
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
-
-<!-- The dots/circles -->
-<div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
 </div>
