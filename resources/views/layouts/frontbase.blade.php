@@ -38,8 +38,12 @@
 
 <!-- Version Tech CSS for this template -->
 <link href="css/version/tech.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/owl.carousel.min.css" rel="stylesheet">
+<link href="css/owl.default.min.css" rel="stylesheet">
+<link href="css/stylee.css" rel="stylesheet">
 
-<link href="css/slider.css" rel="stylesheet">
+
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -54,9 +58,6 @@
 
 @include('home.header')
 
-@section('sidebar')
-    @include('home.sidebar')
-@shoe
 
 @yield('slider')
 

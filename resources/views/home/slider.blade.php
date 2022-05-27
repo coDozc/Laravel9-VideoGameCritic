@@ -1,44 +1,36 @@
-<div class="container-xl">
-    <div class="row">
-        <div class="col-md-10 mx-auto">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-                <!-- Carousel indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-                <!-- Wrapper for carousel items -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row">
-                            @foreach($sliderdata as $rs)
-                            <div class="col-sm-4">
-                                <div class="thumb-wrapper">
-                                    <a href="#">
-                                    <div class="img-box">
-                                        <img src="{{Storage::url($rs->image)}}" class="img-fluid" style="height: 260px; width: 260px">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>{{$rs->title}}</h4>
-                                        <p>{{$rs->title}}</p>
-                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
-                                    </div>
-                                    </a>
+<body>
+<div class="home-slider owl-carousel js-fullheight owl-loaded owl-drag" style="height: 700px;">
+
+    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-3840px, 0px, 0px); transition: all 0s ease 0s; width: 13440px;">
+            @foreach($sliderdata as $rs)
+            <div class="owl-item cloned" style="width: 1920px; align-items: center; ">
+                <div class="slider-item js-fullheight" style="background-image: url('{{Storage::url($rs->image)}}'); height: 1920px; width: 1080px;">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" style="height: 700px;">
+                            <div class="col-md-12 ftco-animate">
+                                <div class="text w-100 text-center">
+                                    <h2>{{$rs->description}}</h2>
+                                    <h1 class="mb-3">{{$rs->title}}</h1>
                                 </div>
                             </div>
-                            @endforeach
                         </div>
                     </div>
                 </div>
-                <!-- Carousel controls -->
-                <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-                    <i class="fa fa-angle-right"></i>
-                </a>
             </div>
-        </div>
+            @endforeach
+    <div class="owl-nav"><button type="button" role="presentation" class="owl-prev">
+            <span class="ion-ios-arrow-back"></span></button><button type="button" role="presentation" class="owl-next"><span class="ion-ios-arrow-forward"></span></button>
+    </div>
+    <div class="owl-dots"><button role="button" class="owl-dot active"><span></span>
+        </button>
+        <button role="button" class="owl-dot"><span></span>
+        </button>
+        <button role="button" class="owl-dot"><span></span>
+        </button>
     </div>
 </div>
+
+
+
+</body>

@@ -77,4 +77,10 @@
 <script src="js/tether.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/custom.js"></script>
-<script src="js/slider.min.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/owl.js"></script>
+<script src="js/jqueryy.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrapp.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>

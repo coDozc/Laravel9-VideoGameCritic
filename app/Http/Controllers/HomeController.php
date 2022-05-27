@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     //
     public function index() {
-        $sliderdata=Game::limit(3)->get();
+        $sliderdata=Game::limit(5)->get();
         $gamelist1=Game::limit(6)->get();
         return view('home.index', [
             'sliderdata'=>$sliderdata,
