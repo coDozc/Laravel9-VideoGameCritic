@@ -47,12 +47,12 @@
                                     <td>{{$data->description}}</td>
                                 </tr>
                                 <tr>
-                                    <th style="width: 30px" >Genre</th>
-                                    <td>{{$data->genre}}</td>
+                                    <th style="width: 30px" >Date</th>
+                                    <td>{{$data->date}}</td>
                                 </tr>
                                 <tr>
-                                    <th style="width: 30px" >Developer</th>
-                                    <td>{{$data->developer}}</td>
+                                    <th style="width: 30px" >Rating</th>
+                                    <td>{{$data->rating}}</td>
                                 </tr>
                                 <tr>
                                     <th style="width: 30px" >Hours</th>

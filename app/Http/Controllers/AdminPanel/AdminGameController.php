@@ -58,8 +58,8 @@ class AdminGameController extends Controller
         $data->description = $request->description;
         $data->detail = $request->detail;
         $data->videolink = $request->videolink;
-        $data->genre = $request->genre;
-        $data->developer = $request->developer;
+        $data->date = $request->date;
+        $data->rating = $request->rating;
         $data->hours = $request->hours;
         $data->summary = $request->summary;
         $data->status = $request->status;
@@ -114,8 +114,8 @@ class AdminGameController extends Controller
         $data->description = $request->description;
         $data->detail = $request->detail;
         $data->videolink = $request->videolink;
-        $data->genre = $request->genre;
-        $data->developer = $request->developer;
+        $data->date = $request->date;
+        $data->rating = $request->rating;
         $data->hours = $request->hours;
         $data->summary = $request->summary;
         $data->status = $request->status;

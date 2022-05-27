@@ -40,6 +40,8 @@ Route::get('/param/{id}/{number}', [HomeController::class, 'param'])->name('para
 
 Route::post('save', [HomeController::class, 'save'])->name('save');
 
+Route::get('/game/{id}', [HomeController::class, 'game'])->name('game');
+
 
 // *************************** ADMIN PANEL ROUTES ************************* \\
 Route::prefix('admin')->name('admin.')->group(function () {

@@ -14,30 +14,35 @@
                 <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                     <div class="page-wrapper">
                         <div class="blog-top clearfix">
-                            <h4 class="pull-left">New Games<a href="#"><i class="fa fa-rss"></i></a></h4>
+                            <h4 class="pull-left">Top Games <a href="#"><i class="fa fa-rss"></i></a></h4>
                         </div><!-- end blog-top -->
                         @foreach($gamelist1 as $rs)
-                        <div class="blog-list clearfix">
                             <div class="blog-box row">
                                 <div class="col-md-4">
                                     <div class="post-media">
-                                        <a href="tech-single.html" title="">
-                                            <img src="{{Storage::url($rs->image)}}" style="height: 300px; width: 250px" class="img-fluid">
+                                        <a href="{{route('game', ['id'=>$rs->id])}}" title="">
+                                            <img src="{{Storage::url($rs->image)}}" alt="" class="img-fluid">
                                             <div class="hovereffect"></div>
                                         </a>
                                     </div><!-- end media -->
                                 </div><!-- end col -->
 
-                                <div class="blog-meta big-meta col-md-8">
+                                <div class="blog-meta big-meta col-md-8" >
                                     <h4><a href="tech-single.html" title="">{{$rs->title}}</a></h4>
-                                    <p>{{$rs->summary}}</p>
-                                    <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Gadgets</a></small>
-                                    <small><a href="tech-single.html" title="">21 July, 2017</a></small>
+                                    <p>{{Str::limit($rs->summary, 250)}}</p>
+                                    <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">{{$rs->category->title}}</a></small>
+                                    <small><a href="tech-single.html" title="">{{$rs->date}}</a></small>
                                     <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                    <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 1114</a></small>
+                                    <small><a href="tech-single.html" title="" ><i class="fa fa-star"></i>{{$rs->rating}}</a></small>
                                 </div><!-- end meta -->
+                            </div>
+
+                            <hr class="invis">
+                                @endforeach
+
                             </div><!-- end blog-box -->
-                            @endforeach
+                        </div><!-- end blog-list -->
+                    </div><!-- end page-wrapper -->
 
                     <hr class="invis">
 
@@ -57,7 +62,9 @@
                     </div><!-- end row -->
                 </div><!-- end col -->
 
-
+                @include('home.sidebar')
+            </div><!-- end row -->
+        </div><!-- end container -->
     </section>
 
 @endsection

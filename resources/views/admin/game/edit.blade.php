@@ -38,12 +38,12 @@
                         <input class="form-control" type="text" name="description" value="{{$data->description}}" placeholder="description">
                     </div>
                     <div class="form-group">
-                        <label>Genre</label>
-                        <input class="form-control" type="text" name="genre" value="{{$data->genre}}"  placeholder="description">
+                        <label>Date</label>
+                        <input class="form-control" type="text" name="date" value="{{$data->date}}"  placeholder="description">
                     </div>
                     <div class="form-group">
-                        <label>Developer</label>
-                        <input class="form-control" type="text" name="developer" value="{{$data->developer}}"  placeholder="description">
+                        <label>Rating</label>
+                        <input class="form-control" type="text" name="rating" value="{{$data->rating}}" step="0.01" placeholder="description">
                     </div>
                     <div class="form-group">
                         <label>Hours</label>
@@ -55,9 +55,22 @@
                     </div>
                     <div class="form-group">
                         <label>Detail</label>
-                        <textarea class="form-control"  name="detail"  >
+                        <textarea class="form-control"  name="detail" id="detail" >
                             {{$data->detail}}
                         </textarea>
+                        <body>
+                        <div id="editor">This is some sample content.</div>
+                        <script>
+                            ClassicEditor
+                                .create( document.querySelector( '#detail' ) )
+                                .then( editor => {
+                                    console.log( editor );
+                                } )
+                                .catch( error => {
+                                    console.error( error );
+                                } );
+                        </script>
+                        </body>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-lg-4">Image Upload</label>

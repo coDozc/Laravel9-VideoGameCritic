@@ -4,16 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     //
     public function index() {
-        $sliderdata=Game::limit(5)->get();
+        $page='home';
+        $sliderdata=Game::limit(4)->get();
         $gamelist1=Game::limit(6)->get();
         return view('home.index', [
             'sliderdata'=>$sliderdata,
+            'page'=>$page,
             'gamelist1'=>$gamelist1
+        ]);
+    }
+    public function game($id) {
+        $data=Game::find($id);
+        $images = DB::table('images')->where('game_id',$id)->get();
+        return view('home.game', [
+            'data'=>$data,
+            'images'=>$images
         ]);
     }
 

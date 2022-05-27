@@ -25,8 +25,8 @@
                                             <th>Id</th>
                                             <th>Category</th>
                                             <th>Title</th>
-                                            <th>Genre</th>
-                                            <th>Developer</th>
+                                            <th>Date</th>
+                                            <th>Rating</th>
                                             <th>Hours</th>
                                         <!--<th>Description</th>-->
                                             <th>Image</th>
@@ -44,8 +44,8 @@
                                             <td>{{App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category,$rs->category->title)}}</td>
                                             <td>{{$rs -> title}}</td>
                                             <!--<td>{{$rs -> description}}</td>-->
-                                            <td>{{$rs -> genre}}</td>
-                                            <td>{{$rs -> developer}}</td>
+                                            <td>{{$rs -> date}}</td>
+                                            <td>{{$rs -> rating}}</td>
                                             <td>{{$rs -> hours}}</td>
                                             <td>
                                                 @if($rs->image)

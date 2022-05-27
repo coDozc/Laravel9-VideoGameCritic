@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->longText('detail')->nullable();
             $table->string('videolink')->nullable();
-            $table->string('genre')->nullable();
-            $table->string('developer')->nullable();
+            $table->string('date')->nullable();
+            $table->float('rating')->nullable();
             $table->float('hours')->nullable();
             $table->string('summary')->nullable();
             $table->string('status', 6)->default('False');

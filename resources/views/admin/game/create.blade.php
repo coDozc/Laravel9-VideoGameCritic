@@ -38,12 +38,12 @@
                         <input class="form-control" type="text" name="description" placeholder="description">
                     </div>
                     <div class="form-group">
-                        <label>Genre</label>
-                        <input class="form-control" type="text" name="genre" placeholder="description">
+                        <label>Date</label>
+                        <input class="form-control" type="text" name="date" placeholder="description">
                     </div>
                     <div class="form-group">
-                        <label>Developer</label>
-                        <input class="form-control" type="text" name="developer" placeholder="description">
+                        <label>Rating</label>
+                        <input class="form-control" type="text" name="rating" value="0" step="0.01" placeholder="description">
                     </div>
                     <div class="form-group">
                         <label>Hours</label>
