@@ -42,6 +42,12 @@ Route::post('save', [HomeController::class, 'save'])->name('save');
 
 Route::get('/game/{id}', [HomeController::class, 'game'])->name('game');
 
+Route::get('/categorygames/{id}/{slug}', [HomeController::class, 'categorygames'])->name('categorygames');
+
+
+
+
+
 
 // *************************** ADMIN PANEL ROUTES ************************* \\
 Route::prefix('admin')->name('admin.')->group(function () {

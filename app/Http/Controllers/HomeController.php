@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Game;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -9,6 +10,14 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     //
+    public  static function maincategorylist() {
+        return Category::where('parent_id', '=' ,0)->with('children')->get();
+    }
+
+//    public  static function headnav() {
+  //      return Game::where('category_id', '=', 'parent_id')->with('children')->get();
+    //}
+
     public function index() {
         $page='home';
         $sliderdata=Game::limit(4)->get();
@@ -22,7 +31,7 @@ class HomeController extends Controller
     public function game($id) {
         $data=Game::find($id);
         $images = DB::table('images')->where('game_id',$id)->get();
-        return view('home.game', [
+        return view('home.game', 'home.header' ,[
             'data'=>$data,
             'images'=>$images
         ]);
