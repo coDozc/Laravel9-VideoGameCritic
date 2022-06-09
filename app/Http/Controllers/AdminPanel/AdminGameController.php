@@ -61,12 +61,12 @@ class AdminGameController extends Controller
         $data->date = $request->date;
         $data->rating = $request->rating;
         $data->hours = $request->hours;
-        $data->summary = $request->summary;
-        $data->status = $request->status;
-        if ($request->file('image')) {
-            $data->image = $request->file('image')->store('images');
-        }
+        $data->summary = $request->summary; if ($request->file('image')) {
+        $data->image = $request->file('image')->store('images');
+    }
         $data->save();
+        $data->status = $request->status;
+
         return redirect('admin/game');
     }
 

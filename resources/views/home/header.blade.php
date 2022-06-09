@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="tech-index.html">Home</a>
+                        <a class="nav-link" href="{{route('home')}}">Home</a>
                     </li>
 
                     <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
@@ -86,7 +86,13 @@
                         <a class="nav-link" href="tech-category-03.html">Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tech-contact.html">Contact Us</a>
+                        <a class="nav-link" href="{{route('contact')}}">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('references')}}">References</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('about')}}">About</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mr-2">

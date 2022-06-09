@@ -58,7 +58,7 @@
                 <a href="/admin/faq"><i class="fa fa-question "></i>FAQ</a>
             </li>
             <li class="active-menu">
-                <a href="/admin/messages"><i class="fa fa-message "></i>Messages</a>
+                <a href="{{route('admin.message.index')}}"><i class="fa fa-message "></i>Messages</a>
             </li>
             <li class="active-menu">
                 <a href="/admin/users"><i class="fa fa-user"></i>Users</a>
