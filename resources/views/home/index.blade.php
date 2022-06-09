@@ -1,7 +1,9 @@
 @extends('layouts.frontbase')
 
-@section('title', 'Game Critic')
-
+@section('title', $setting->title)
+@section('keywords', $setting->keywords)
+@section('description', $setting->description)
+@section('icon', Storage::url($setting->icon))
 
 @section('slider')
     @include('home.slider')

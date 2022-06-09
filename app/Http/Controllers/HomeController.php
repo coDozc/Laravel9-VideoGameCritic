@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Game;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -22,11 +23,14 @@ class HomeController extends Controller
         $page='home';
         $sliderdata=Game::limit(4)->get();
         $gamelist1=Game::limit(6)->get();
+        $setting=Setting::first();
         return view('home.index', [
             'sliderdata'=>$sliderdata,
             'page'=>$page,
+            'setting'=>$setting,
             'gamelist1'=>$gamelist1
         ]);
+
     }
     public function game($id) {
         $data=Game::find($id);

@@ -51,8 +51,11 @@ Route::get('/categorygames/{id}/{slug}', [HomeController::class, 'categorygames'
 
 // *************************** ADMIN PANEL ROUTES ************************* \\
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('', [AdminHomeController::class, 'index'])->name('index');
-// *************************** ADMIN PANEL ROUTES ************************* \\
+    Route::get('/', [AdminHomeController::class, 'index'])->name('index');
+// *************************** General Routes ROUTES ************************* \\
+    Route::get('/setting', [AdminHomeController::class, 'setting'])->name('setting');
+    Route::post('/setting', [AdminHomeController::class, 'settingUpdate'])->name('setting.update');
+// *************************** ADMIN CATEGORY ROUTES ************************* \\
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
         Route::get('','index')->name('index');
         Route::get('/create', 'create')->name('create');
