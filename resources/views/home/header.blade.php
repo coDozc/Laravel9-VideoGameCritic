@@ -96,9 +96,10 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav mr-2">
+                    <li>
                     @auth
-                    <li class="nav-item">
-                        <strong class="text-uppercase">{{Auth::user()->name}}</strong>
+                    <a class="nav-item">
+                        <a href="{{route('userpanel.index')}}"<strong class="text-uppercase">{{Auth::user()->name}}</strong></a>
                         <a class="nav-link" href="/logoutuser"><i class="fa fa-arrow-circle-down"></i>LOGOUT</a>
                     </li>
                     @endauth

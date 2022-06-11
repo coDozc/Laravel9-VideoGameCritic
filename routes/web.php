@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\AdminHomeController;
 use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminPanel\CategoryController;
 
@@ -58,70 +59,73 @@ Route::get('/game/{id}', [HomeController::class, 'game'])->name('game');
 Route::get('/categorygames/{id}/{slug}', [HomeController::class, 'categorygames'])->name('categorygames');
 
 
+// *************************** USER AUTH CONTROL ************************* \\
+Route::middleware('auth')->group(function() {
+// *************************** USER ROUTES ************************* \\
+    Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
 
-
-
-
+    });
 // *************************** ADMIN PANEL ROUTES ************************* \\
-Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [AdminHomeController::class, 'index'])->name('index');
-// *************************** General Routes ROUTES ************************* \\
-    Route::get('/setting', [AdminHomeController::class, 'setting'])->name('setting');
-    Route::post('/setting', [AdminHomeController::class, 'settingUpdate'])->name('setting.update');
-// *************************** ADMIN CATEGORY ROUTES ************************* \\
-    Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
-        Route::get('','index')->name('index');
-        Route::get('/create', 'create')->name('create');
-        Route::put('/store', 'store')->name('store');
-        Route::get('/edit/{id}','edit')->name('edit');
-        Route::put('/update/{id}','update')->name('update');
-        Route::get('/destroy/{id}','destroy')->name('destroy');
-        Route::get('/show/{id}','show')->name('show');
-    });
+    Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/', [AdminHomeController::class, 'index'])->name('index');
+    // *************************** General Routes ROUTES ************************* \\
+        Route::get('/setting', [AdminHomeController::class, 'setting'])->name('setting');
+        Route::post('/setting', [AdminHomeController::class, 'settingUpdate'])->name('setting.update');
+    // *************************** ADMIN CATEGORY ROUTES ************************* \\
+        Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
+            Route::get('','index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::put('/store', 'store')->name('store');
+            Route::get('/edit/{id}','edit')->name('edit');
+            Route::put('/update/{id}','update')->name('update');
+            Route::get('/destroy/{id}','destroy')->name('destroy');
+            Route::get('/show/{id}','show')->name('show');
+        });
 
-    // *************************** ADMIN GAME ROUTES ************************* \\
-    Route::prefix('game')->name('game.')->controller(AdminGameController::class)->group(function () {
-        Route::get('','index')->name('index');
-        Route::get('/create', 'create')->name('create');
-        Route::put('/store', 'store')->name('store');
-        Route::get('/edit/{id}','edit')->name('edit');
-        Route::put('/update/{id}','update')->name('update');
-        Route::get('/destroy/{id}','destroy')->name('destroy');
-        Route::get('/show/{id}','show')->name('show');
+        // *************************** ADMIN GAME ROUTES ************************* \\
+        Route::prefix('game')->name('game.')->controller(AdminGameController::class)->group(function () {
+            Route::get('','index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::put('/store', 'store')->name('store');
+            Route::get('/edit/{id}','edit')->name('edit');
+            Route::put('/update/{id}','update')->name('update');
+            Route::get('/destroy/{id}','destroy')->name('destroy');
+            Route::get('/show/{id}','show')->name('show');
+    });
+        // *************************** ADMIN GAME IMAGE GALLERY ROUTES ************************* \\
+        Route::prefix('image')->name('image.')->controller(ImageController::class)->group(function () {
+            Route::get('/{gid}','index')->name('index');
+            Route::post('/store/{gid}', 'store')->name('store');
+            Route::get('/destroy/{gid}/{id}','destroy')->name('destroy');
+        });
+
+        // *************************** ADMIN MESSAGE ROUTES ************************* \\
+        Route::prefix('message')->name('message.')->controller(MessageController::class)->group(function () {
+            Route::get('/','index')->name('index');
+            Route::post('/update/{id}','update')->name('update');
+            Route::get('/destroy/{id}','destroy')->name('destroy');
+            Route::get('/show/{id}','show')->name('show');
+        });
+        // *************************** ADMIN COMMENT ROUTES ************************* \\
+        Route::prefix('comment')->name('comment.')->controller(CommentController::class)->group(function () {
+            Route::get('/','index')->name('index');
+            Route::post('/update/{id}','update')->name('update');
+            Route::get('/destroy/{id}','destroy')->name('destroy');
+            Route::get('/show/{id}','show')->name('show');
+        });
+        // *************************** ADMIN USER ROUTES ************************* \\
+        Route::prefix('user')->name('user.')->controller(AdminUserController::class)->group(function () {
+            Route::get('/','index')->name('index');
+            Route::post('/update/{id}','update')->name('update');
+            Route::get('/destroy/{id}','destroy')->name('destroy');
+            Route::get('/show/{id}','show')->name('show');
+            Route::get('/edit/{id}','edit')->name('edit');
+            Route::post('/addrole/{id}','addrole')->name('addrole');
+            Route::get('/destroyrole/{uid}/{rid}','destroyrole')->name('destroyrole');
+        });
+
+    });
 });
-    // *************************** ADMIN GAME IMAGE GALLERY ROUTES ************************* \\
-    Route::prefix('image')->name('image.')->controller(ImageController::class)->group(function () {
-        Route::get('/{gid}','index')->name('index');
-        Route::post('/store/{gid}', 'store')->name('store');
-        Route::get('/destroy/{gid}/{id}','destroy')->name('destroy');
-    });
-
-    // *************************** ADMIN MESSAGE ROUTES ************************* \\
-    Route::prefix('message')->name('message.')->controller(MessageController::class)->group(function () {
-        Route::get('/','index')->name('index');
-        Route::post('/update/{id}','update')->name('update');
-        Route::get('/destroy/{id}','destroy')->name('destroy');
-        Route::get('/show/{id}','show')->name('show');
-    });
-    // *************************** ADMIN COMMENT ROUTES ************************* \\
-    Route::prefix('comment')->name('comment.')->controller(CommentController::class)->group(function () {
-        Route::get('/','index')->name('index');
-        Route::post('/update/{id}','update')->name('update');
-        Route::get('/destroy/{id}','destroy')->name('destroy');
-        Route::get('/show/{id}','show')->name('show');
-    });
-    // *************************** ADMIN USER ROUTES ************************* \\
-    Route::prefix('user')->name('user.')->controller(AdminUserController::class)->group(function () {
-        Route::get('/','index')->name('index');
-        Route::post('/update/{id}','update')->name('update');
-        Route::get('/destroy/{id}','destroy')->name('destroy');
-        Route::get('/show/{id}','show')->name('show');
-        Route::get('/edit/{id}','edit')->name('edit');
-        Route::post('/addrole/{id}','addrole')->name('addrole');
-        Route::get('/destroyrole/{uid}/{rid}','destroyrole')->name('destroyrole');
-    });
-
-});
-
 require __DIR__.'/auth.php';
 
