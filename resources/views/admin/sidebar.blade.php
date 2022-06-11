@@ -14,7 +14,7 @@
                     <img src="{{asset('assets')}}/assets/img/user.png" class="img-thumbnail" />
 
                     <div class="inner-text">
-                        {{Auth::user()->name}}
+                        {{\Illuminate\Support\Facades\Auth::user()->name}}
                         <br />
                         <a class="nav-link" href="/logoutuser" style="color:white"><i class="fa fa-arrow-circle-down"></i>LOGOUT</a>
                     </div>
@@ -61,7 +61,7 @@
                 <a href="{{route('admin.message.index')}}"><i class="fa fa-message "></i>Messages</a>
             </li>
             <li class="active-menu">
-                <a href="/admin/users"><i class="fa fa-user"></i>Users</a>
+                <a href="{{route('admin.user.index')}}"><i class="fa fa-user"></i>Users</a>
             </li>
             <li class="active-menu">
                 <a href="/admin/social"><i class="fa-solid fa-users text-green-50"></i>Social</a>
