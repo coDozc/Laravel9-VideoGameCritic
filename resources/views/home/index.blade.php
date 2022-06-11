@@ -30,12 +30,16 @@
                                 </div><!-- end col -->
 
                                 <div class="blog-meta big-meta col-md-8" >
+                                    @php
+                                        $average = $rs->reviews->average('rate');
+                                    @endphp
                                     <h4><a href="tech-single.html" title="">{{$rs->title}}</a></h4>
                                     <p>{{Str::limit($rs->summary, 250)}}</p>
                                     <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">{{$rs->category->title}}</a></small>
                                     <small><a href="tech-single.html" title="">{{$rs->date}}</a></small>
                                     <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                    <small><a href="tech-single.html" title="" ><i class="fa fa-star"></i>{{$rs->rating}}</a></small>
+                                    <small><a href="tech-single.html" title="" >{{$average}}<i class="fa fa-star"></i></a></small>
+                                    <small>{{$rs->reviews->count('id')}} Comments</small>
                                 </div><!-- end meta -->
                             </div>
 

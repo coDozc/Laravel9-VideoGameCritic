@@ -21,10 +21,12 @@
                             <span class="color-orange"><a href="tech-category-01.html" title="">{{$data->category->title}}</a></span>
 
                             <h3>{{$data->title}}</h3>
-
+                            @php
+                                $average = $data->reviews->average('rate');
+                            @endphp
                             <div class="blog-meta big-meta">
                                 <small><a href="tech-single.html" title="">{{$data->date}}</a></small>
-                                <small><a href="#" title=""><i class="fa fa-star"></i>{{$data->rating}}</a></small>
+                                <small><a href="#" title=""><i class="fa fa-star"></i>{{$average}}</a></small>
                             </div><!-- end meta -->
 
                             <div class="post-sharing">
@@ -196,7 +198,7 @@
                         <hr class="invis1">
 
                         <div class="custombox clearfix">
-                            <h4 class="small-title">3 Comments</h4>
+                            <h4 class="small-title">{{$data->reviews->count('id')}} Comments</h4>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="comments-list">
@@ -233,6 +235,10 @@
                                         <div class="form-group">
                                             <div class="input-rating">
                                                 <strong class="text-uppercase">Your Rating: </strong>
+                                                @php
+                                                    $average = $data->reviews->average('rate');
+                                                @endphp
+                                                {{$average}}
                                                 <div class="stars">
                                                     <input type="radio" class="fa fa-star" id="star1" name="rate" value="1"  /><label for="star1"></label>
                                                     <input type="radio" class="fa fa-star" id="star2" name="rate" value="2"  /><label for="star2"></label>
