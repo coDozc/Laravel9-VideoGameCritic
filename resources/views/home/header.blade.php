@@ -96,15 +96,18 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav mr-2">
+                    @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-rss"></i></a>
+                        <strong class="text-uppercase">{{Auth::user()->name}}</strong>
+                        <a class="nav-link" href="/logoutuser"><i class="fa fa-arrow-circle-down"></i>LOGOUT</a>
                     </li>
+                    @endauth
+                    @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-android"></i></a>
+                        <a class="nav-link" href="/loginuser"><i class="fa fa-arrow-right"></i>LOGIN</a>
+                        <a class="nav-link" href="/registeruser"><i class="fa fa-user">SIGN UP</i></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-apple"></i></a>
-                    </li>
+                        @endguest
                 </ul>
             </div>
         </nav>

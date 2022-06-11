@@ -116,5 +116,14 @@ class HomeController extends Controller
                 'lname' => $_REQUEST["lname"]
             ]);
     }
+    public function logout(Request $request) {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }
 
