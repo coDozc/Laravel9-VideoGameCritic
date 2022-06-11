@@ -14,9 +14,9 @@
                     <img src="{{asset('assets')}}/assets/img/user.png" class="img-thumbnail" />
 
                     <div class="inner-text">
-                        Jhon Deo Alex
+                        {{Auth::user()->name}}
                         <br />
-                        <small>Last Login : 2 Weeks Ago </small>
+                        <a class="nav-link" href="/logoutuser" style="color:white"><i class="fa fa-arrow-circle-down"></i>LOGOUT</a>
                     </div>
                 </div>
 
