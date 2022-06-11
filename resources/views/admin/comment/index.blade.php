@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Contact Form Messages List')
+@section('title', 'Comment & Reviews List')
 @section('head')
         <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 @endsection
@@ -14,7 +14,7 @@
                         <!--    Bordered Table  -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Message List
+                                Comment List
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -23,10 +23,11 @@
                                         <thead>
                                         <tr>
                                             <th>Id</th>
+                                            <th>Game</th>
                                             <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>E-mail</th>
                                             <th>Subject</th>
+                                            <th>Reviews</th>
+                                            <th>Rate</th>
                                             <th>Status</th>
                                             <th>Show</th>
                                             <th>Delete</th>
@@ -37,14 +38,15 @@
                                         @foreach($data as $rs)
                                         <tr>
                                             <td>{{$rs -> id}}</td>
-                                            <td>{{$rs -> name}}</td>
-                                            <td>{{$rs -> phone}}</td>
-                                            <td>{{$rs -> email}}</td>
+                                            <td><a href="{{route('admin.game.show',['id'=>$rs ->game_id] )}}">{{$rs ->game->title}}</a>
+                                            <td>{{$rs ->user->name}}</td>
                                             <td>{{$rs -> subject}}</td>
+                                            <td>{{$rs -> review}}</td>
+                                            <td>{{$rs -> rate}}</td>
                                             <td>{{$rs -> status}}</td>
 
-                                            <td><a onclick="return !window.open(this.href, '', 'top=50 left=100 width=1100, height=700')" href="{{route('admin.message.show',['id'=>$rs -> id])}}"class="btn btn-info">Show</a></td>
-                                            <td><a onclick="return confirm('Are you sure?')" href="{{route('admin.message.destroy',['id'=>$rs -> id])}}"class="btn btn-danger">Delete</a>
+                                            <td><a onclick="return !window.open(this.href, '', 'top=50 left=100 width=1100, height=700')" href="{{route('admin.comment.show',['id'=>$rs -> id])}}"class="btn btn-info">Show</a></td>
+                                            <td><a onclick="return confirm('Are you sure?')" href="{{route('admin.comment.destroy',['id'=>$rs -> id])}}"class="btn btn-danger">Delete</a>
                                             </td>
 
                                         </tr>

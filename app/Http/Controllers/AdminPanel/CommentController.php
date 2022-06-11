@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
-use App\Models\Game;
-use App\Models\Message;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
-class MessageController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $data = Message::all();
-        return view('admin.message.index', [
+        //dd($data);
+        $data = Comment::all();
+        return view('admin.comment.index', [
             'data' => $data
         ]);
     }
@@ -40,22 +40,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $data->category_id = $request->category_id;
-        $data->user_id=0;
-        $data->title = $request->title;
-        $data->keywords = $request->keywords;
-        $data->description = $request->description;
-        $data->detail = $request->detail;
-        $data->videolink = $request->videolink;
-        $data->date = $request->date;
-        $data->rating = $request->rating;
-        $data->hours = $request->hours;
-        $data->summary = $request->summary;
-        $data->status = $request->status;
-        if ($request->file('image')) {
-            $data->image = $request->file('image')->store('images');
-        }
-        $data->save();
+        //
     }
 
     /**
@@ -66,12 +51,8 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-        $data = Message::find($id);
-
-        $data->status = 'Read';
-        $data->save();
-
-        return view('admin.message.show', [
+        $data = Comment::find($id);
+        return view('admin.comment.show', [
             'data' => $data
         ]);
     }
@@ -96,10 +77,10 @@ class MessageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data= Message::find($id);
-        $data->note = $request->note;
+        $data= Comment::find($id);
+        $data->status = $request->status;
         $data->save();
-        return redirect(route('admin.message.show',['id'=>$id]));
+        return redirect(route('admin.comment.show',['id'=>$id]));
     }
 
     /**
@@ -110,8 +91,6 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        $data=Message::find($id);
-        $data->delete();
-        return redirect(route('admin.message.index'));
+        //
     }
 }

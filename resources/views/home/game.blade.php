@@ -126,7 +126,6 @@
                         </div><!-- end author-box -->
 
                         <hr class="invis1">
-
                         <div class="custombox authorbox clearfix">
                             <h4 class="small-title">About author</h4>
                             <div class="row">
@@ -201,41 +200,19 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="comments-list">
+                                        @foreach($reviews as $rs)
                                         <div class="media">
                                             <a class="media-left" href="#">
                                                 <img src="upload/author.jpg" alt="" class="rounded-circle">
                                             </a>
                                             <div class="media-body">
-                                                <h4 class="media-heading user_name">Amanda Martines <small>5 days ago</small></h4>
-                                                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean.</p>
+                                                <h4 class="media-heading user_name">{{$rs->user->name}} <small>{{$rs->created_at}} <i class="fa fa-star"></i>{{$rs->rate}}</small></h4>
+                                                <strong>{{$rs->subject}}</strong>
+                                                <p>{{$rs->review}}</p>
                                                 <a href="#" class="btn btn-primary btn-sm">Reply</a>
                                             </div>
                                         </div>
-                                        <div class="media">
-                                            <a class="media-left" href="#">
-                                                <img src="upload/author_01.jpg" alt="" class="rounded-circle">
-                                            </a>
-                                            <div class="media-body">
-
-                                                <h4 class="media-heading user_name">Baltej Singh <small>5 days ago</small></h4>
-
-                                                <p>Drinking vinegar stumptown yr pop-up artisan sunt. Deep v cliche lomo biodiesel Neutra selfies. Shorts fixie consequat flexitarian four loko tempor duis single-origin coffee. Banksy, elit small.</p>
-
-                                                <a href="#" class="btn btn-primary btn-sm">Reply</a>
-                                            </div>
-                                        </div>
-                                        <div class="media last-child">
-                                            <a class="media-left" href="#">
-                                                <img src="upload/author_02.jpg" alt="" class="rounded-circle">
-                                            </a>
-                                            <div class="media-body">
-
-                                                <h4 class="media-heading user_name">Marie Johnson <small>5 days ago</small></h4>
-                                                <p>Kickstarter seitan retro. Drinking vinegar stumptown yr pop-up artisan sunt. Deep v cliche lomo biodiesel Neutra selfies. Shorts fixie consequat flexitarian four loko tempor duis single-origin coffee. Banksy, elit small.</p>
-
-                                                <a href="#" class="btn btn-primary btn-sm">Reply</a>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div><!-- end col -->
                             </div><!-- end row -->
@@ -247,12 +224,29 @@
                             <h4 class="small-title">Leave a Reply</h4>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form-wrapper">
-                                        <input type="text" class="form-control" placeholder="Your name">
-                                        <input type="text" class="form-control" placeholder="Email address">
-                                        <input type="text" class="form-control" placeholder="Website">
-                                        <textarea class="form-control" placeholder="Your comment"></textarea>
+                                    <form class="form-wrapper" action="{{route('storecomment')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" class="form-control" name="game_id" value="{{$data->id}}">
+                                        <input type="text" class="form-control" name="subject" placeholder="Subject">
+                                        <textarea class="form-control"  name="review" placeholder="Your comment"></textarea>
+
+                                        <div class="form-group">
+                                            <div class="input-rating">
+                                                <strong class="text-uppercase">Your Rating: </strong>
+                                                <div class="stars">
+                                                    <input type="radio" class="fa fa-star" id="star1" name="rate" value="1"  /><label for="star1"></label>
+                                                    <input type="radio" class="fa fa-star" id="star2" name="rate" value="2"  /><label for="star2"></label>
+                                                    <input type="radio" class="fa fa-star" id="star3" name="rate" value="3"  /><label for="star3"></label>
+                                                    <input type="radio" class="fa fa-star" id="star4" name="rate" value="4"  /><label for="star4"></label>
+                                                    <input type="radio" class="fa fa-star" id="star5" name="rate" value="5"  /><label for="star5"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @auth
                                         <button type="submit" class="btn btn-primary">Submit Comment</button>
+                                        @else
+                                            <a href="/login" class="btn primary-btn">For Submit Your Review, Please Login</a>
+                                        @endauth
                                     </form>
                                 </div>
                             </div>

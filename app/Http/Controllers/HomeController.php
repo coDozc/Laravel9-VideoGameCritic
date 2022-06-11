@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Game;
 use App\Models\Message;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -16,9 +18,6 @@ class HomeController extends Controller
         return Category::where('parent_id', '=' ,0)->with('children')->get();
     }
 
-//    public  static function headnav() {
-  //      return Game::where('category_id', '=', 'parent_id')->with('children')->get();
-    //}
 
     public function index() {
         $page='home';
@@ -70,12 +69,28 @@ class HomeController extends Controller
         return redirect()->route('contact')->with('info', 'Your message has been sent, Thank You.');
     }
 
+    public function storecomment(Request $request) {
+        //dd($request);
+        $data = new Comment();
+        $data->user_id = Auth::id();
+        $data->game_id = $request->input('game_id');
+        $data->subject = $request->input('subject');
+        $data->review = $request->input('review');
+        $data->rate = $request->input('rate');
+        $data->ip = request()->ip();
+        $data->save();
+
+        return redirect()->route('game' ,['id'=>$request->input('game_id')])->with('info', 'Your comment has been sent, Thank You.');
+    }
+
     public function game($id) {
-        $data=Game::find($id);
+        $data= Game::find($id);
         $images = DB::table('images')->where('game_id',$id)->get();
-        return view('home.game', 'home.header' ,[
+        $reviews =Comment::where('game_id',$id)->get();
+        return view('home.game' ,[
             'data'=>$data,
-            'images'=>$images
+            'images'=>$images,
+            'reviews'=>$reviews
         ]);
     }
 
