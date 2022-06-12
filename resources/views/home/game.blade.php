@@ -238,7 +238,7 @@
                                                 @php
                                                     $average = $data->reviews->average('rate');
                                                 @endphp
-                                                {{$average}}
+                                                
                                                 <div class="stars">
                                                     <input type="radio" class="fa fa-star" id="star1" name="rate" value="1"  /><label for="star1"></label>
                                                     <input type="radio" class="fa fa-star" id="star2" name="rate" value="2"  /><label for="star2"></label>

@@ -11,7 +11,7 @@
                                 <div class="col-md-12 ftco-animate">
                                     <div class="text w-100 text-center">
                                         <h2>{{$rs->description}}</h2>
-                                        <h1 class="mb-3">{{$rs->title}}</h1>
+                                        <a href="{{route('game',['id'=>$rs->id])}}"><h1 class="mb-3">{{$rs->title}}</h1></a>
                                     </div>
                                 </div>
                             </div>
