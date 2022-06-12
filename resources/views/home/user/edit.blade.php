@@ -65,10 +65,6 @@
                                             <input class="form-control" type="text" name="date" value="{{$data->date}}"  placeholder="description">
                                         </div>
                                         <div class="form-group">
-                                            <label>Rating</label>
-                                            <input class="form-control" type="text" name="rating" value="{{$data->rating}}" step="0.01" placeholder="description">
-                                        </div>
-                                        <div class="form-group">
                                             <label>Hours</label>
                                             <input class="form-control" type="number" name="hours" value="{{$data->hours}}"  step="0.01">
                                         </div>

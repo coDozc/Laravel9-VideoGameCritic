@@ -45,7 +45,7 @@
                                             <select class="form-control select2" name="category_id">
                                                 <option value="0" selected="selected">Main Game</option>
                                                 @foreach($data as $rs)
-                                                    <option value="{{$rs->id}}" > {{App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
+                                                    <option value="{{$rs->id}}"> {{App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
                                                 @endforeach
                                             </select>
 
@@ -64,10 +64,6 @@
                                         <div class="form-group">
                                             <label>Date</label>
                                             <input class="form-control" type="text" name="date" placeholder="description">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Rating</label>
-                                            <input class="form-control" type="text" name="rating" value="0" step="0.01" placeholder="description">
                                         </div>
                                         <div class="form-group">
                                             <label>Hours</label>

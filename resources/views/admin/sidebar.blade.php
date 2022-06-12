@@ -55,7 +55,7 @@
                 <a href="/admin/comment"><i class="fa fa-comments "></i>Comment</a>
             </li>
             <li class="active-menu">
-                <a href="/admin/faq"><i class="fa fa-question "></i>FAQ</a>
+                <a href="{{route('admin.faq.index')}}"><i class="fa fa-question "></i>FAQ</a>
             </li>
             <li class="active-menu">
                 <a href="{{route('admin.message.index')}}"><i class="fa fa-message "></i>Messages</a>

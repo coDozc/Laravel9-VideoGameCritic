@@ -43,7 +43,6 @@
                                                 <th>Category</th>
                                                 <th>Title</th>
                                                 <th>Date</th>
-                                                <th>Rating</th>
                                                 <th>Hours</th>
                                                 <!--<th>Description</th>-->
                                                 <th>Image</th>
@@ -62,7 +61,6 @@
                                                     <td>{{$rs -> title}}</td>
                                                 <!--<td>{{$rs -> description}}</td>-->
                                                     <td>{{$rs -> date}}</td>
-                                                    <td>{{$rs -> rating}}</td>
                                                     <td>{{$rs -> hours}}</td>
                                                     <td>
                                                         @if($rs->image)
