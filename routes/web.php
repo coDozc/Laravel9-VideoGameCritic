@@ -67,6 +67,15 @@ Route::middleware('auth')->group(function() {
         Route::get('/', 'index')->name('index');
         Route::get('/reviews', 'reviews')->name('reviews');
         Route::get('/reviewdestroy/{id}','reviewdestroy')->name('reviewdestroy');
+        Route::get('/games', 'games')->name('games');
+        Route::get('/gamedestroy/{id}','gamedestroy')->name('gamedestroy');
+        Route::get('/gameedit/{id}','gameedit')->name('gameedit');
+        Route::put('/gameupdate/{id}','gameupdate')->name('gameupdate');
+        Route::get('/gamecreate', 'gamecreate')->name('gamecreate');
+        Route::put('/gamestore', 'gamestore')->name('gamestore');
+
+
+        //**************************** USER PANEL GAME ************************\\
 
     });
 // *************************** ADMIN PANEL ROUTES ************************* \\

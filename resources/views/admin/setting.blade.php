@@ -28,8 +28,8 @@
                             <li class=""><a href="#references" data-toggle="tab">References</a>
                             </li>
                         </ul>
-<form role="form" action="{{route('admin.setting.update')}}" method="post" enctype="multipart/form-data">
-    @csrf
+                        <form role="form" action="{{route('admin.setting.update')}}" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="tab-content">
                             <div class="tab-pane fade active in" id="home">
                                 <input type="hidden" class="form-control" name="id" value="{{$data->id}}">
@@ -127,16 +127,28 @@
                                 <div class="form-group">
                                     <label name="aboutus">About us</label>
 
-                                       <textarea  id="aboutus" name="aboutus" value="{!! $data->aboutus !!}" ></textarea>
-
+                                       <textarea class="form-control" id="aboutus" name="aboutus">
+                                                value="{!! $data->aboutus !!}"
+                                       </textarea>
+                                    <body>
+                                    <div id="editor">This is some sample content.</div>
+                                    <script>
+                                        ClassicEditor
+                                            .create( document.querySelector( '#aboutus' ) )
+                                            .then( editor => {
+                                                console.log( editor );
+                                            } )
+                                            .catch( error => {
+                                                console.error( error );
+                                            } );
+                                    </script>
+                                    </body>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="contact">
                                 <div class="form-group">
                                     <label>Contact</label>
-                                    <div id="summernote2">
                                         <textarea  id="contact" name="contact" value="{!! $data->contact !!}" ></textarea>
-                                    </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="references">
@@ -159,6 +171,11 @@
     <!-- /. PAGE WRAPPER  -->
     </div>
 @section('foot')
-
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+        $(function () {
+            $('. textarea').summernote()
+        })
+    </script>
 @endsection
 @endsection

@@ -1,30 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\AdminPanel;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Game;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Mockery\Generator\CachingGenerator;
 
-class AdminGameController extends Controller
+class GameController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
 
-
     public function index()
     {
         //
         $data = Game::all();
-        return view('admin.game.index', [
+        return view('user.game.index', [
             'data' => $data
         ]);
     }
@@ -38,10 +31,10 @@ class AdminGameController extends Controller
     {
         //
         $data = Category::all();
-        return view('admin.game.create', [
+        return view('user.game.create', [
             'data' => $data
         ]);
-        return view('admin.game.create');
+        return view('user.game.create');
     }
 
     /**
@@ -54,7 +47,6 @@ class AdminGameController extends Controller
     {
         $data=new Game();
         $data->category_id = $request->category_id;
-        $data->user_id= Auth::id();
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
@@ -69,7 +61,7 @@ class AdminGameController extends Controller
         $data->save();
         $data->status = $request->status;
 
-        return redirect('admin/game');
+        return redirect('user/game');
     }
 
     /**
@@ -81,7 +73,7 @@ class AdminGameController extends Controller
     public function show(Game $game, $id)
     {
         $data = Game::find($id);
-        return view('admin.game.show', [
+        return view('user.game.show', [
             'data' => $data
         ]);
     }
@@ -97,7 +89,7 @@ class AdminGameController extends Controller
         //
         $data = Game::find($id);
         $datalist = Category::all();
-        return view('admin.game.edit', [
+        return view('user.game.edit', [
             'data' => $data,
             'datalist' => $datalist
         ]);
@@ -110,7 +102,7 @@ class AdminGameController extends Controller
         //
         $data = Game::find($id);
         $data->category_id = $request->category_id;
-        $data->user_id = 0; //$request->user_id;
+        $data->user_id = Auth::id(); //$request->user_id;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
@@ -125,7 +117,7 @@ class AdminGameController extends Controller
             $data->image = $request->file('image')->store('images');
         }
         $data->save();
-        return redirect('admin/game');
+        return redirect('user/game');
 
     }
 
@@ -142,6 +134,6 @@ class AdminGameController extends Controller
             Storage::delete('$data->image');
         }
         $data->delete();
-        return redirect('admin/game');
+        return redirect('user/game');
     }
 }
