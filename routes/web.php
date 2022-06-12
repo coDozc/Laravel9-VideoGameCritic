@@ -61,9 +61,12 @@ Route::get('/categorygames/{id}/{slug}', [HomeController::class, 'categorygames'
 
 // *************************** USER AUTH CONTROL ************************* \\
 Route::middleware('auth')->group(function() {
-// *************************** USER ROUTES ************************* \\
+
+// *************************** USER PANEL ROUTES ************************* \\
     Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::get('/reviews', 'reviews')->name('reviews');
+        Route::get('/reviewdestroy/{id}','reviewdestroy')->name('reviewdestroy');
 
     });
 // *************************** ADMIN PANEL ROUTES ************************* \\
