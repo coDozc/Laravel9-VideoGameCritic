@@ -97,12 +97,14 @@ class HomeController extends Controller
 
     public function game($id) {
         $data= Game::find($id);
+        $setting=Setting::first();
         $images = DB::table('images')->where('game_id',$id)->get();
         $reviews =Comment::where('game_id',$id)->get();
         return view('home.game' ,[
             'data'=>$data,
             'images'=>$images,
-            'reviews'=>$reviews
+            'reviews'=>$reviews,
+            'setting'=>$setting
         ]);
     }
 

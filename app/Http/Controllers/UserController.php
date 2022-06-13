@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Game;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -34,6 +36,39 @@ class UserController extends Controller
         return view('home.user.game', [
             'game' => $game,
         ]);
+    }
+    public function gallery($gid)
+    {
+        $game = Game::find($gid);
+        //$images = Image::where('game_id',$gid);
+        $images = DB::table('images')->where('game_id',$gid)->get();
+        return view('home.user.image.index', [
+            'game' => $game,
+            'images' => $images,
+        ]);
+    }
+
+    public function imagedestroy($gid,$id)
+    {
+        //
+        $data=Image::find($id);
+        if ($data->image && Storage::disk('public')->exists('$data->image')) {
+            Storage::delete('$data->image');
+        }
+        $data->delete();
+        return redirect()->route('userpanel.gallery', ['gid'=>$gid]);
+    }
+    public function imagestore(Request $request,$gid)
+    {
+        //
+        $data=new Image();
+        $data->game_id = $gid;
+        $data->title = $request->title;
+        if ($request->file('image')) {
+            $data->image = $request->file('image')->store('images');
+        }
+        $data->save();
+        return redirect()->route('userpanel.gallery', ['gid'=>$gid]);
     }
 
     /**

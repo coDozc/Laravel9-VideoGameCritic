@@ -75,6 +75,9 @@ Route::middleware('auth')->group(function() {
         Route::put('/gameupdate/{id}','gameupdate')->name('gameupdate');
         Route::get('/gamecreate', 'gamecreate')->name('gamecreate');
         Route::put('/gamestore', 'gamestore')->name('gamestore');
+        Route::put('/imagestore', 'imagestore')->name('imagestore');
+        Route::get('/imagedestroy/{id}','imagedestroy')->name('imagedestroy');
+        Route::get('/gallery', 'gallery')->name('gallery');
 
 
         //**************************** USER PANEL GAME ************************\\
