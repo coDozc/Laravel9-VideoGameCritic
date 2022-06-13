@@ -21,11 +21,11 @@
                             </li>
                             <li class=""><a href="#social" data-toggle="tab">Social Media</a>
                             </li>
-                            <li class=""><a href="#aboutus" data-toggle="tab">About us</a>
+                            <li class=""><a href="#aboutus2" data-toggle="tab">About us</a>
                             </li>
-                            <li class=""><a href="#contact" data-toggle="tab">Contact Page</a>
+                            <li class=""><a href="#contact2" data-toggle="tab">Contact Page</a>
                             </li>
-                            <li class=""><a href="#references" data-toggle="tab">References</a>
+                            <li class=""><a href="#references2" data-toggle="tab">References</a>
                             </li>
                         </ul>
                         <form role="form" action="{{route('admin.setting.update')}}" method="post" enctype="multipart/form-data">
@@ -123,39 +123,22 @@
                                     <input class="form-control" type="text" name="fax" value="{{$data->fax}}" placeholder="keywords">
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="aboutus">
+                            <div class="tab-pane fade" id="aboutus2">
                                 <div class="form-group">
-                                    <label name="aboutus">About us</label>
-
-                                       <textarea class="form-control" id="aboutus" name="aboutus">
-                                                value="{!! $data->aboutus !!}"
-                                       </textarea>
-                                    <body>
-                                    <div id="editor">This is some sample content.</div>
-                                    <script>
-                                        ClassicEditor
-                                            .create( document.querySelector( '#aboutus' ) )
-                                            .then( editor => {
-                                                console.log( editor );
-                                            } )
-                                            .catch( error => {
-                                                console.error( error );
-                                            } );
-                                    </script>
-                                    </body>
+                                    <label>About us</label>
+                                       <textarea id="aboutus" name="aboutus">{{ $data->aboutus }}</textarea>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="contact">
+                            <div class="tab-pane fade" id="contact2">
                                 <div class="form-group">
                                     <label>Contact</label>
-                                        <textarea  id="contact" name="contact" value="{!! $data->contact !!}" ></textarea>
+                                        <textarea  id="contact" name="contact">{{ $data->contact }}</textarea>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="references">
+                            <div class="tab-pane fade" id="references2">
                                 <div class="form-group">
                                     <label>References</label>
-                                    <textarea name="references" id="references"></textarea>
-
+                                    <textarea name="references" id="references">{{ $data->references }}</textarea>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -173,8 +156,10 @@
 @section('foot')
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script>
-        $(function () {
-            $('. textarea').summernote()
+        $(document).ready(function() {
+            $('#aboutus').summernote();
+            $('#contact').summernote();
+            $('#references').summernote();
         })
     </script>
 @endsection

@@ -75,13 +75,6 @@
                             @endforeach
                         </ul>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="tech-category-01.html">Gadgets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="tech-category-03.html">Reviews</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('contact')}}">Contact Us</a>
                     </li>
